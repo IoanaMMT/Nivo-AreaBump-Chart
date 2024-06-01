@@ -1,3 +1,4 @@
+import React from "react";
 import { ResponsiveAreaBump } from "@nivo/bump";
 
 const MyResponsiveAreaBump = ({ data }) => (
@@ -63,3 +64,5 @@ const MyResponsiveAreaBump = ({ data }) => (
     }}
   />
 );
+
+export default MyResponsiveAreaBump;
