@@ -1,5 +1,6 @@
 import React from "react";
 import { ResponsiveAreaBump } from "@nivo/bump";
+import { data } from "./data";
 
 const MyResponsiveAreaBump = ({ data }) => (
   <ResponsiveAreaBump

@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: "JavaScript",
+    id: "Area 1",
     data: [
       {
         x: 2000,
@@ -29,7 +29,7 @@ export const data = [
     ],
   },
   {
-    id: "ReasonML",
+    id: "Area 2",
     data: [
       {
         x: 2000,
@@ -58,7 +58,7 @@ export const data = [
     ],
   },
   {
-    id: "TypeScript",
+    id: "Area 3",
     data: [
       {
         x: 2000,
@@ -87,7 +87,7 @@ export const data = [
     ],
   },
   {
-    id: "Elm",
+    id: "Area 4",
     data: [
       {
         x: 2000,
@@ -116,7 +116,7 @@ export const data = [
     ],
   },
   {
-    id: "CoffeeScript",
+    id: "Area 5",
     data: [
       {
         x: 2000,
