@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: "Area 1",
+    id: "Example 1",
     data: [
       {
         x: 2000,
@@ -29,7 +29,7 @@ export const data = [
     ],
   },
   {
-    id: "Area 2",
+    id: "Example 2",
     data: [
       {
         x: 2000,
@@ -58,7 +58,7 @@ export const data = [
     ],
   },
   {
-    id: "Area 3",
+    id: "Example 3",
     data: [
       {
         x: 2000,
@@ -87,7 +87,7 @@ export const data = [
     ],
   },
   {
-    id: "Area 4",
+    id: "Example 4",
     data: [
       {
         x: 2000,
@@ -116,7 +116,7 @@ export const data = [
     ],
   },
   {
-    id: "Area 5",
+    id: "Example 5",
     data: [
       {
         x: 2000,
