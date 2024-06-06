@@ -1,38 +1,60 @@
 import React, { useEffect, useState } from "react";
-import MyResponsiveAreaBump from "./areabump";
+import MyResponsiveAreaBump from "./MyResponsiveAreaBump";
 
 const AreaBumpContainer = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (year) => {
       try {
-        const year = new Date().getFullYear(); // Get the current year
         const response = await fetch(
           `https://api.tfl.gov.uk/AccidentStats/${year}`
         );
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const result = await response.json();
-        const processedData = processApiData(result);
-        setData(processedData);
+        return result;
       } catch (error) {
-        console.error("Error fetching data:", error);
+        return null;
       }
     };
-    fetchData();
+
+    const loadValidData = async () => {
+      const currentYear = new Date().getFullYear();
+      let data = null;
+      for (let year = currentYear; year >= currentYear - 5; year--) {
+        data = await fetchData(year);
+        if (data) {
+          const processedData = processApiData(data);
+          setData(processedData);
+          break;
+        }
+      }
+      if (!data) {
+        setError("No valid data found for the past 5 years.");
+      }
+      setLoading(false);
+    };
+
+    loadValidData();
   }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return <MyResponsiveAreaBump data={data} />;
 };
 
-// Replace with actual logic to process API data
 const processApiData = (apiData) => {
-  // Example transformation, adjust based on the API response structure
   return [
     {
       id: "Accident Data",
-      data: apiData.map((item, index) => ({
-        x: new Date(item.date).getFullYear(), // Assuming date is in YYYY-MM-DD format
-        y: item.casualties.length, // Use the number of casualties as the value
+      data: apiData.map((item) => ({
+        x: new Date(item.date).getFullYear(),
+        y: item.casualties.length,
       })),
     },
   ];
