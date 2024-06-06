@@ -42,7 +42,7 @@ const MyResponsiveAreaBump = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019];
+        const years = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
         const promises = years.map((year) =>
           axios.get(`https://api.tfl.gov.uk/AccidentStats/${year}`)
         );
